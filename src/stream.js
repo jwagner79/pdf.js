@@ -754,6 +754,9 @@ var PredictorStream = (function PredictorStreamClosure() {
       default:
         error('Unsupported predictor: ' + predictor);
     }
+    
+    // hack for TypedArray-less browsers
+    buffer.set(currentRow, bufferLength);
     this.bufferLength += rowBytes;
   };
 
